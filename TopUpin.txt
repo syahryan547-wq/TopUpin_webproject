@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TopUpin — Jual Pulsa & Topup Daimen & E-Wallet</title>
+  <style>
+    :root{
+      --blue:#1f57ff;
+      --dark:#0f172a;
+      --light:#f8fafc;
+      --muted:#64748b;
+      --accent:#ffb703;
+      --red:#ef4444;
+      --green:#10b981;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color:#0f172a;
+      background:#ffffff;
+    }
+    /* Navbar */
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 20px; background:#eef2ff; position:sticky; top:0; z-index:10;
+      border-bottom:1px solid #e2e8f0;
+    }
+    .brand{display:flex; align-items:center; gap:10px}
+    .logo{
+      width:36px; height:36px; border-radius:50%; background:#1f57ff; display:grid; place-items:center; color:#fff; font-weight:700;
+    }
+    .brand-name{font-weight:800; color:#172554; letter-spacing:0.2px;}
+    .nav-links{display:flex; gap:18px; align-items:center}
+    .nav-links a{color:#172554; text-decoration:none; font-weight:600}
+    .btn{
+      background:#1f57ff; color:#fff; border:none; padding:10px 14px; border-radius:10px; font-weight:700; cursor:pointer;
+    }
+    .btn:disabled{opacity:.6; cursor:not-allowed}
+    /* Hero */
+    .hero{
+      display:grid; grid-template-columns:1.1fr .9fr; gap:20px;
+      padding:38px 20px; max-width:1100px; margin:0 auto;
+    }
+    .hero h1{font-size:32px; margin:0 0 8px; color:#0f172a}
+    .hero p{margin:0 0 18px; color:#334155}
+    .cta{background:var(--accent); color:#1f2937; border:none; padding:12px 16px; border-radius:12px; font-weight:800; cursor:pointer}
+    .hero-card{
+      background:#f1f5f9; border:1px solid #e2e8f0; border-radius:14px; padding:18px;
+    }
+    /* Produk grid */
+    .section{max-width:1100px; margin:0 auto; padding:10px 20px 28px}
+    .section h2{font-size:22px; margin:10px 0 14px}
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+    .card{
+      background:#ffffff; border:1px solid #e2e8f0; border-radius:14px; padding:16px;
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .icon{
+      width:44px; height:44px; border-radius:10px; display:grid; place-items:center; font-weight:800; color:#fff;
+    }
+    .icon.pulsa{background:#ef4444}
+    .icon.diamen{background:#22c55e}
+    .icon.ewallet{background:#0ea5e9}
+    .card-title{font-weight:800}
+    .card-desc{color:#64748b; font-size:14px}
+    .card button{align-self:flex-start}
+    /* Form Top Up */
+    .form{
+      display:grid; grid-template-columns:1fr 1fr; gap:18px;
+      background:#ffffff; border:1px solid #e2e8f0; border-radius:14px; padding:18px;
+    }
+    .form h3{grid-column:1/-1; margin:0 0 6px}
+    label{font-weight:700; display:block; margin-bottom:6px}
+    select, input{
+      width:100%; padding:10px; border:1px solid #cbd5e1; border-radius:10px; font-size:14px;
+      background:#ffffff;
+    }
+    .help{color:#64748b; font-size:12px; margin-top:4px}
+    .inline{display:flex; gap:10px}
+    .summary{
+      background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:12px; margin-top:8px;
+      font-size:14px; color:#334155;
+    }
+    .pay-row{display:flex; gap:8px; flex-wrap:wrap}
+    .pay{
+      padding:8px 10px; border:1px solid #cbd5e1; border-radius:10px; background:#fff; cursor:pointer; font-weight:700;
+    }
+    .pay.active{border-color:#1f57ff; background:#eef2ff}
+    .notice{font-size:13px; color:#64748b}
+    .error{color:var(--red); font-size:13px; margin-top:6px}
+    .success{color:var(--green); font-weight:800}
+    /* Footer */
+    .footer{padding:18px 20px; text-align:center; color:#64748b; border-top:1px solid #e2e8f0; margin-top:30px}
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .form{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr; gap:12px}
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="nav">
+    <div class="brand">
+      <div class="logo">↑</div>
+      <div class="brand-name">TopUpin</div>
+    </div>
+    <div class="nav-links">
+      <a href="#produk">Produk</a>
+      <a href="#caratopup">Cara Top Up</a>
+      <a href="#kontak">Kontak</a>
+      <button class="btn">Sign In</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div>
+      <h1>Jual Pulsa & Topup Daimen</h1>
+      <p>Beli Pulsa HP, Diamond Game, dan saldo E-Wallet jadi lebih simpel di sini.</p>
+      <button class="cta" onclick="scrollToForm()">Top Up Sekarang</button>
+    </div>
+    <div class="hero-card">
+      <strong>Ringkas & Aman:</strong>
+      <ul>
+        <li><strong>Metode:</strong> QRIS, Transfer, VA, e-Wallet</li>
+        <li><strong>Proses:</strong> 24/7, beberapa detik</li>
+        <li><strong>Konfirmasi:</strong> otomatis & riwayat pesanan</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Produk -->
+  <section id="produk" class="section">
+    <h2>Pilih produk</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="icon pulsa">📶</div>
+        <div class="card-title">Pulsa HP</div>
+        <div class="card-desc">Isi ulang pulsa untuk semua operator.</div>
+        <button class="btn" onclick="pickProduct('pulsa')">Pilih Pulsa</button>
+      </div>
+      <div class="card">
+        <div class="icon diamen">💎</div>
+        <div class="card-title">Daimen Game</div>
+        <div class="card-desc">Top up diamond untuk game favoritmu.</div>
+        <button class="btn" onclick="pickProduct('diamen')">Pilih Daimen</button>
+      </div>
+      <div class="card">
+        <div class="icon ewallet">👛</div>
+        <div class="card-title">E-Wallet</div>
+        <div class="card-desc">Isi saldo dompet digital populer.</div>
+        <button class="btn" onclick="pickProduct('ewallet')">Pilih E-Wallet</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form Top Up -->
+  <section id="form" class="section">
+    <div class="form">
+      <h3>Form Top Up</h3>
+
+      <!-- Jenis Produk -->
+      <div>
+        <label for="jenis">Jenis produk</label>
+        <select id="jenis" onchange="onJenisChange()">
+          <option value="pulsa">Pulsa HP</option>
+          <option value="diamen">Daimen Game</option>
+          <option value="ewallet">E-Wallet</option>
+        </select>
+        <div class="help">Sesuaikan isian di bawah sesuai jenis produk.</div>
+      </div>
+
+      <!-- Nomor / ID -->
+      <div id="field-target">
+        <label for="target">Nomor HP / User ID</label>
+        <input id="target" placeholder="Contoh: 081234567890 atau UID game" />
+        <div class="help">Masukkan nomor tujuan untuk Pulsa/E-Wallet atau User ID untuk Daimen.</div>
+      </div>
+
+      <!-- Operator / Game / E-Wallet -->
+      <div id="field-variant">
+        <label for="variant">Operator / Game / E-Wallet</label>
+        <select id="variant"></select>
+        <div class="help" id="variant-help">Pilih sesuai jenis produk yang dipilih.</div>
+      </div>
+
+      <!-- Nominal -->
+      <div>
+        <label for="nominal">Nominal</label>
+        <div class="inline">
+          <select id="nominal"></select>
+          <input id="customNominal" type="number" min="1000" step="1000" placeholder="Nominal custom (opsional)" />
+        </div>
+        <div class="help">Kamu bisa pilih paket nominal atau isi angka sendiri.</div>
+      </div>
+
+      <!-- Metode pembayaran -->
+      <div>
+        <label>Metode pembayaran</label>
+        <div class="pay-row" id="payRow"></div>
+        <div class="notice">Biaya admin berbeda tiap metode. Ringkasan di bawah akan menghitung total otomatis.</div>
+      </div>
+
+      <!-- Ringkasan -->
+      <div style="grid-column:1/-1">
+        <label>Ringkasan pesanan</label>
+        <div class="summary" id="summary">Belum ada data. Lengkapi form untuk melihat ringkasan.</div>
+        <div class="error" id="error"></div>
+      </div>
+
+      <!-- Submit -->
+      <div style="grid-column:1/-1; display:flex; gap:10px">
+        <button class="btn" id="submitBtn" onclick="submitOrder()">Bayar sekarang</button>
+        <button class="pay" onclick="resetForm()">Reset</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cara Top Up -->
+  <section id="caratopup" class="section">
+    <h2>Cara Top Up</h2>
+    <ul>
+      <li><strong>Pilih produk:</strong> Pulsa, Daimen, atau E-Wallet.</li>
+      <li><strong>Isi detail:</strong> nomor/UID, operator/game/wallet, dan nominal.</li>
+      <li><strong>Pilih metode bayar:</strong> QRIS/Transfer/VA/e-Wallet.</li>
+      <li><strong>Konfirmasi:</strong> cek ringkasan lalu tekan Bayar.</li>
+    </ul>
+  </section>
+
+  <!-- Kontak -->
+  <section id="kontak" class="section">
+    <h2>Kontak</h2>
+    <p><strong>WhatsApp:</strong> 08xx-xxxx-xxxx &nbsp; | &nbsp; <strong>Email:</strong> support@topupin.id</p>
+  </section>
+
+  <footer class="footer">
+    © 2025 TopUpin — Dibuat dengan hati di Jawa Barat.
+  </footer>
+
+  <script>
+    // Data master
+    const DATA = {
+      pulsa: {
+        variants: ["Telkomsel","XL/Axis","Indosat","Tri","Smartfren"],
+        nominals: [5000, 10000, 20000, 50000, 100000]
+      },
+      diamen: {
+        variants: ["Mobile Legends","Free Fire","PUBG Mobile","Genshin Impact"],
+        nominals: [25, 50, 100, 250, 500] // jumlah diamond
+      },
+      ewallet: {
+        variants: ["OVO","GoPay","DANA","ShopeePay","LinkAja"],
+        nominals: [10000, 20000, 50000, 100000, 200000]
+      },
+      payments: [
+        { code:"qris", name:"QRIS", fee: 1000 },
+        { code:"transfer", name:"Transfer Bank", fee: 1500 },
+        { code:"va", name:"Virtual Account", fee: 2000 },
+        { code:"wallet", name:"E-Wallet", fee: 1200 },
+      ]
+    };
+
+    // State
+    const state = {
+      jenis: "pulsa",
+      target: "",
+      variant: "",
+      nominal: null,
+      customNominal: null,
+      payment: null
+    };
+
+    // Helpers
+    const Rp = n => new Intl.NumberFormat('id-ID', { style:'currency', currency:'IDR'}).format(n);
+    const el = id => document.getElementById(id);
+
+    function scrollToForm(){
+      document.getElementById('form').scrollIntoView({behavior:'smooth'});
+    }
+
+    function pickProduct(jenis){
+      el('jenis').value = jenis;
+      onJenisChange();
+      scrollToForm();
+    }
+
+    function onJenisChange(){
+      state.jenis = el('jenis').value;
+      // Variant list
+      const variant = el('variant');
+      variant.innerHTML = "";
+      DATA[state.jenis].variants.forEach(v=>{
+        const o = document.createElement('option');
+        o.value = v; o.textContent = v;
+        variant.appendChild(o);
+      });
+      state.variant = DATA[state.jenis].variants[0];
+
+      // Nominal list
+      const nominal = el('nominal');
+      nominal.innerHTML = "";
+      DATA[state.jenis].nominals.forEach(n=>{
+        const o = document.createElement('option');
+        o.value = n; o.textContent = formatNominalLabel(n);
+        nominal.appendChild(o);
+      });
+      state.nominal = DATA[state.jenis].nominals[0];
+
+      // Placeholder & help
+      const target = el('target');
+      const help = el('variant-help');
+      if(state.jenis === 'pulsa'){
+        target.placeholder = "Nomor HP (contoh: 081234567890)";
+        help.textContent = "Pilih operator kartu yang digunakan.";
+      } else if(state.jenis === 'diamen'){
+        target.placeholder = "User ID Game (contoh: 123456789)";
+        help.textContent = "Pilih game yang ingin di-top up.";
+      } else {
+        target.placeholder = "Nomor HP terhubung ke E-Wallet (contoh: 081234567890)";
+        help.textContent = "Pilih platform e-Wallet.";
+      }
+
+      // Payment methods
+      const row = el('payRow');
+      row.innerHTML = "";
+      DATA.payments.forEach(p=>{
+        const btn = document.createElement('button');
+        btn.className = 'pay';
+        btn.textContent = `${p.name}`;
+        btn.onclick = ()=>{
+          state.payment = p;
+          document.querySelectorAll('.pay').forEach(b=>b.classList.remove('active'));
+          btn.classList.add('active');
+          renderSummary();
+        };
+        row.appendChild(btn);
+      });
+
+      // Reset fields
+      el('customNominal').value = "";
+      state.customNominal = null;
+      renderSummary();
+    }
+
+    function formatNominalLabel(n){
+      if(state.jenis === 'diamen'){
+        return `${n} Diamond`;
+      }
+      return Rp(n);
+    }
+
+    function renderSummary(){
+      state.target = el('target').value.trim();
+      state.variant = el('variant').value;
+      const selectNom = el('nominal').value ? Number(el('nominal').value) : null;
+      const customNom = el('customNominal').value ? Number(el('customNominal').value) : null;
+      state.nominal = selectNom;
+      state.customNominal = customNom || null;
+
+      let nilai = selectNom;
+      if(state.customNominal && state.jenis !== 'diamen'){
+        nilai = state.customNominal;
+      }
+      // untuk diamond, custom nominal tidak dipakai (bisa dibuat nanti)
+      const fee = state.payment ? state.payment.fee : 0;
+      const subtotal = state.jenis === 'diamen' ? estimateDiamondPrice(nilai) : nilai;
+      const total = subtotal + fee;
+
+      const lines = [];
+      lines.push(`<strong>Jenis:</strong> ${ucfirst(state.jenis)}`);
+      if(state.target) lines.push(`<strong>Tujuan:</strong> ${escapeHtml(state.target)}`);
+      lines.push(`<strong>Varian:</strong> ${state.variant}`);
+      lines.push(`<strong>Nominal:</strong> ${state.jenis==='diamen' ? (nilai+' Diamond') : Rp(nilai)}`);
+      lines.push(`<strong>Metode bayar:</strong> ${state.payment ? state.payment.name : 'Belum dipilih'}`);
+      lines.push(`<strong>Subtotal:</strong> ${state.jenis==='diamen' ? Rp(subtotal) : Rp(subtotal)}`);
+      lines.push(`<strong>Biaya admin:</strong> ${Rp(fee)}`);
+      lines.push(`<strong>Total bayar:</strong> ${Rp(total)}`);
+
+      el('summary').innerHTML = lines.map(l=>`• ${l}`).join('<br/>');
+    }
+
+    function estimateDiamondPrice(d){
+      // Estimasi sederhana: Rp 300 per diamond
+      return Math.round(d * 300);
+    }
+
+    function ucfirst(s){ return s.charAt(0).toUpperCase() + s.slice(1); }
+
+    function escapeHtml(s){
+      return s.replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m]));
+    }
+
+    function validate(){
+      el('error').textContent = "";
+      const errs = [];
+      if(!state.target){
+        errs.push("Nomor HP / User ID belum diisi.");
+      } else {
+        if(state.jenis !== 'diamen'){
+          // Validasi nomor HP sederhana
+          const hp = state.target.replace(/\s+/g,'');
+          if(!/^0[0-9]{9,13}$/.test(hp)) errs.push("Format nomor HP kurang valid.");
+        }
+      }
+      if(!state.variant) errs.push("Varian belum dipilih.");
+      if(!state.nominal) errs.push("Nominal belum dipilih.");
+      if(!state.payment) errs.push("Metode pembayaran belum dipilih.");
+      if(errs.length){
+        el('error').innerHTML = errs.map(e=>`• ${e}`).join('<br/>');
+        return false;
+      }
+      return true;
+    }
+
+    function submitOrder(){
+      renderSummary();
+      if(!validate()) return;
+      const btn = el('submitBtn');
+      btn.disabled = true; btn.textContent = "Memproses...";
+      setTimeout(()=>{
+        const orderId = 'TU-' + Math.random().toString(36).slice(2,8).toUpperCase();
+        const msg = `
+          Pesanan berhasil dibuat!
+          <span class="success">Order ID: ${orderId}</span><br/>
+          Silakan selesaikan pembayaran sesuai metode yang dipilih.
+        `;
+        el('error').innerHTML = msg;
+        btn.disabled = false; btn.textContent = "Bayar sekarang";
+      }, 1200);
+    }
+
+    function resetForm(){
+      el('target').value = "";
+      el('customNominal').value = "";
+      document.querySelectorAll('.pay').forEach(b=>b.classList.remove('active'));
+      state.payment = null;
+      renderSummary();
+      el('error').textContent = "";
+    }
+
+    // Init
+    onJenisChange();
+
+    // Event bindings for live summary
+    el('target').addEventListener('input', renderSummary);
+    el('variant').addEventListener('change', renderSummary);
+    el('nominal').addEventListener('change', renderSummary);
+    el('customNominal').addEventListener('input', renderSummary);
+  </script>
+</body>
+</html>
