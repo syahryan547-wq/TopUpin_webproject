@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TopUpin — Top Up</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="topup">
+  <nav class="nav"></nav>
+
+  <section class="section">
+    <div class="form">
+      <h3>Form Top Up</h3>
+
+      <div>
+        <label for="jenis">Jenis produk</label>
+        <select id="jenis">
+          <option value="pulsa">Pulsa HP</option>
+          <option value="diamen">Daimen Game</option>
+          <option value="ewallet">E-Wallet</option>
+        </select>
+        <div class="help">Sesuaikan isian di bawah sesuai jenis produk.</div>
+      </div>
+
+      <div id="field-target">
+        <label for="target">Nomor HP / User ID</label>
+        <input id="target" placeholder="Contoh: 081234567890 atau UID game" />
+        <div class="help">Masukkan nomor tujuan untuk Pulsa/E-Wallet atau User ID untuk Daimen.</div>
+      </div>
+
+      <div id="field-variant">
+        <label for="variant">Operator / Game / E-Wallet</label>
+        <select id="variant"></select>
+        <div class="help" id="variant-help">Pilih sesuai jenis produk yang dipilih.</div>
+      </div>
+
+      <div>
+        <label for="nominal">Nominal</label>
+        <div class="inline">
+          <select id="nominal"></select>
+          <input id="customNominal" type="number" min="1000" step="1000" placeholder="Nominal custom (opsional)" />
+        </div>
+        <div class="help">Kamu bisa pilih paket nominal atau isi angka sendiri.</div>
+      </div>
+
+      <div>
+        <label>Metode pembayaran</label>
+        <div class="pay-row" id="payRow"></div>
+        <div class="notice">Biaya admin berbeda tiap metode. Ringkasan di bawah akan menghitung total otomatis.</div>
+      </div>
+
+      <div style="grid-column:1/-1">
+        <label>Ringkasan pesanan</label>
+        <div class="summary" id="summary">Belum ada data. Lengkapi form untuk melihat ringkasan.</div>
+        <div class="error" id="error"></div>
+      </div>
+
+      <div style="grid-column:1/-1; display:flex; gap:10px">
+        <button class="btn" id="submitBtn">Bayar sekarang</button>
+        <button class="pay" id="resetBtn">Reset</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © 2025 TopUpin — Dibuat dengan hati di Jawa Barat.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
