@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id" data-page="transaksi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Transaksi — TopUpin</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- <nav class="nav">
+    <div class="brand">
+      <div class="logo">↑</div>
+      <a href="index.html" class="brand-name" style="text-decoration:none">TopUpin</a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Produk</a>
+      <a href="topup.html">Top Up</a>
+      <a href="howto.html">Cara Top Up</a>
+      <a href="contact.html">Kontak</a>
+      
+    </div>
+  </nav> -->
+
+  <main class="section" style="max-width:900px; margin:18px auto;">
+    <h2>Pembayaran</h2>
+
+    <div class="card" id="trxCard">
+      <div id="trxInfo">Memuat detail transaksi...</div>
+    </div>
+
+    <div style="height:12px"></div>
+
+    <div class="card" id="payMethods">
+      <h3>Pilih Metode Pembayaran</h3>
+      <div class="pay-row" id="methodRow">
+        <button class="pay" data-pay="qris">QRIS</button>
+        <button class="pay" data-pay="wallet">E-Wallet</button>
+        <button class="pay" data-pay="va">Virtual Account</button>
+      </div>
+
+      <div id="payBox" style="margin-top:16px; display:none"></div>
+
+      <div style="margin-top:12px; display:flex; gap:10px; align-items:center;">
+        <div>Waktu tersisa: <strong id="countdown">--:--</strong></div>
+        <button class="btn" id="paidBtn" style="margin-left:auto;">Saya Sudah Bayar</button>
+        <button class="btn" id="cancelBtn" style="background:#ef4343">Batal</button>
+        <a href="index.html"><button class="btn" id="cancelBtn" style="background:#7f8743">Kembali</button></a>
+      </div>
+
+      <div id="trxMessage" class="notice" style="margin-top:12px"></div>
+    </div>
+  </main>
+
+  <footer class="footer">© 2025 TopUpin</footer>
+
+  <script src="transaksi.js"></script>
+</body>
+</html>

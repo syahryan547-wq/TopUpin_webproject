@@ -1,0 +1,111 @@
+:root{
+  --blue:#1f57ff;
+  --dark:#0f172a;
+  --light:#f8fafc;
+  --muted:#64748b;
+  --accent:#ffb703;
+  --red:#ef4444;
+  --green:#10b981;
+}
+*{box-sizing:border-box}
+body{background:#fff}
+.section{padding:18px}
+.card{border-radius:12px; padding:16px; border:1px solid #e2e8f0; background:#fff}
+.pay-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px}
+.pay{padding:8px 12px; border-radius:10px; border:1px solid #cbd5e1; cursor:pointer; background:#fff}
+.pay.active{background:#eef2ff; border-color:#1f57ff}
+#payBox{padding:12px; border-radius:8px; background:#f8fafc; border:1px dashed #e2e8f0}
+.qr-placeholder{width:220px; height:220px; display:grid; place-items:center; background:#fff; border:8px solid #000;}
+.small-muted{color:#64748b; font-size:13px}
+#paidBtn{background:#10b981}
+#cancelBtn{background:#ef4444; color:#fff}
+.notice{color:#64748b}
+@media (max-width:700px){
+.qr-placeholder{width:160px; height:160px}
+}
+
+/* Navbar */
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 20px; background:#eef2ff; position:sticky; top:0; z-index:10;
+  border-bottom:1px solid #e2e8f0;
+}
+.brand{display:flex; align-items:center; gap:10px}
+.logo{
+  width:36px; height:36px; border-radius:50%; background:#1f57ff; display:grid; place-items:center; color:#fff; font-weight:700;
+}
+.brand-name{font-weight:800; color:#172554; letter-spacing:0.2px;}
+.nav-links{display:flex; gap:18px; align-items:center}
+.nav-links a{color:#172554; text-decoration:none; font-weight:600}
+.btn{
+  background:#1f57ff; color:#fff; border:none; padding:10px 14px; border-radius:10px; font-weight:700; cursor:pointer;
+}
+.btn:disabled{opacity:.6; cursor:not-allowed}
+
+/* Layout sections */
+.section{max-width:1100px; margin:0 auto; padding:10px 20px 28px}
+.section h2{font-size:22px; margin:10px 0 14px}
+
+/* Hero */
+.hero{
+  display:grid; grid-template-columns:1.1fr .9fr; gap:20px;
+  padding:38px 20px; max-width:1100px; margin:0 auto;
+}
+.hero h1{font-size:32px; margin:0 0 8px; color:#0f172a}
+.hero p{margin:0 0 18px; color:#334155}
+.cta{background:var(--accent); color:#1f2937; border:none; padding:12px 16px; border-radius:12px; font-weight:800; cursor:pointer}
+.hero-card{
+  background:#f1f5f9; border:1px solid #e2e8f0; border-radius:14px; padding:18px;
+}
+
+/* Cards & grid */
+.grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+.card{
+  background:#ffffff; border:1px solid #e2e8f0; border-radius:14px; padding:16px;
+  display:flex; flex-direction:column; gap:10px;
+}
+.icon{
+  width:44px; height:44px; border-radius:10px; display:grid; place-items:center; font-weight:800; color:#fff;
+}
+.icon.pulsa{background:#ef4444}
+.icon.diamen{background:#22c55e}
+.icon.ewallet{background:#0ea5e9}
+.card-title{font-weight:800}
+.card-desc{color:#64748b; font-size:14px}
+.card button{align-self:flex-start}
+
+/* Top Up form */
+.form{
+  display:grid; grid-template-columns:1fr 1fr; gap:18px;
+  background:#ffffff; border:1px solid #e2e8f0; border-radius:14px; padding:18px;
+}
+.form h3{grid-column:1/-1; margin:0 0 6px}
+label{font-weight:700; display:block; margin-bottom:6px}
+select, input{
+  width:100%; padding:10px; border:1px solid #cbd5e1; border-radius:10px; font-size:14px;
+  background:#ffffff;
+}
+.help{color:#64748b; font-size:12px; margin-top:4px}
+.inline{display:flex; gap:10px}
+.summary{
+  background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:12px; margin-top:8px;
+  font-size:14px; color:#334155;
+}
+.pay-row{display:flex; gap:8px; flex-wrap:wrap}
+.pay{
+  padding:8px 10px; border:1px solid #cbd5e1; border-radius:10px; background:#fff; cursor:pointer; font-weight:700;
+}
+.pay.active{border-color:#1f57ff; background:#eef2ff}
+.notice{font-size:13px; color:#64748b}
+.error{color:var(--red); font-size:13px; margin-top:6px}
+.success{color:var(--green); font-weight:800}
+
+/* Footer */
+.footer{padding:18px 20px; text-align:center; color:#64748b; border-top:1px solid #e2e8f0; margin-top:30px}
+
+/* Responsive */
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .form{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr; gap:12px}
+}
